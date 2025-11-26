@@ -32,6 +32,13 @@ public:
 		}
 		return false;
 	}
+
+	Point& operator += (int a)
+	{
+		x += a;
+		y += a;
+		return*this;
+	}
 };
 
 ostream& operator<<(ostream& os, Point obj)
@@ -87,4 +94,14 @@ int main()
 	}
 	cout << endl;
 
+	for (auto ptr = arr.begin(); ptr != arr.end(); ptr++)
+	{
+		*ptr += 10;
+	}
+	cout << endl;
+
+	/*for (auto ptr = arr.begin(); ptr != arr.end(); ptr++)
+	{
+		(*ptr)++;
+	}*/
 }
