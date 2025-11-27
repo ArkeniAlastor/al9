@@ -33,11 +33,19 @@ public:
 		return false;
 	}
 
-	Point& operator += (int a)
+	Point& operator+=(int a)
 	{
 		x += a;
 		y += a;
-		return*this;
+		return *this;
+	}
+
+	Point operator++(int)
+	{
+		Point temp = *this;
+		x++;
+		y++;
+		return temp;
 	}
 };
 
@@ -46,6 +54,7 @@ ostream& operator<<(ostream& os, Point obj)
 	os << "X: " << obj.x << "\tY: " << obj.y << endl;
 	return os;
 }
+
 
 int main()
 {
@@ -98,10 +107,20 @@ int main()
 	{
 		*ptr += 10;
 	}
+	for (auto ptr = arr.begin(); ptr != arr.end(); ptr++)
+	{
+		cout << *ptr << "\t";
+	}
 	cout << endl;
 
-	/*for (auto ptr = arr.begin(); ptr != arr.end(); ptr++)
+	for (auto ptr = arr.begin(); ptr != arr.end(); ptr++)
 	{
 		(*ptr)++;
-	}*/
+	}
+	for (auto ptr = arr.begin(); ptr != arr.end(); ptr++)
+	{
+		cout << *ptr << "\t";
+	}
+	cout << endl;	
+
 }
